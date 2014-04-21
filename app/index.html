@@ -43,7 +43,6 @@ $('#login-button').click(function() {
                 access
             ); 
 						document.getElementById('comments1').innerHTML=access;
-						Hello();
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
@@ -145,7 +144,6 @@ $.ajax({
   <ul class="menu">
    <button id="login-button" disabled>Loading...</button>
 
-  <input type="button" value="Load Stack Stuff" onclick="Hello()">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
   </ul>
