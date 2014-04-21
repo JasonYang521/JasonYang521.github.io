@@ -89,9 +89,9 @@ $.ajax({
         dataType: 'jsonp',
         contentType:'application/json',
         success: function(data) {        
-            $scope.greeting = data;
+            $scope.me = data;
 			myValue = data;
-			document.getElementById('comments3').innerHTML=$scope.greeting.items;
+			document.getElementById('comments3').innerHTML=$scope.me.items;
         },
 		jsonp: 'jsonp'    
     });
