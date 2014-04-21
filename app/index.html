@@ -89,7 +89,7 @@ $.ajax({
         dataType: 'jsonp',
         contentType:'application/json',
         success: function(data) {        
-            $scope.wow = data;
+            $scope.greeting = data;
 			myValue = data;
 			document.getElementById('comments3').innerHTML=$scope.greeting.items;
         },
