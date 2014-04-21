@@ -53,7 +53,7 @@ $('#login-button').click(function() {
 </script>
 <script>
  function Hello($scope, $http) {
-    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&'+access).
+    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.greeting = data;
         });		
@@ -143,7 +143,6 @@ $.ajax({
    <button id="login-button" disabled>Loading...</button>
 
   <input type="button" value="Load Stack Stuff" onclick="Hello()">
-    <input type="button" value="Load WOW Stuff" onclick="Hello2()">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
   </ul>
