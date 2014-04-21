@@ -30,4 +30,10 @@
 }
 body{
     background-image: url("../img/background.jpg");
+    color: rgba(255,255,255,0.7) !important;
+    font-family: "Blizzard","Arial","Helvetica",sans-serif !important;
+}
+.navbar{
+	width: 1200px;
+	margin-left: 600px;
 }

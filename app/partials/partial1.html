@@ -1,6 +1,7 @@
-			<div ng-controller="Hello">
-			<p>The ID is {{greeting.items[0].owner}}</p>
+			<div ng-controller="getUser">
+			<p>The ID is {{greeting.items[0].account_id}}</p>
 				<ul ng-repeat="item in greeting.items">
-			<li>The Value and Key  is {{item.owner.reputation}}</li>
+				<li>The Value and Key  is {{item.reputation}}
+			<!--<li>The Value and Key  is {{item.owner.reputation}}</li>-->
 		</ul>
 		</div>
