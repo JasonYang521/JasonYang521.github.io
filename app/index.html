@@ -82,6 +82,7 @@ $.ajax({
     $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.greeting = data;
+			document.getElementById('comments2').innerHTML=$scope.greeting.items[0].owner;
         });		
 } 
 </script>
@@ -147,7 +148,7 @@ $.ajax({
     <li><a href="#/view2">view2</a></li>
   </ul>
   <div id="comments1">THis div</div>
-
+  <div id="comments2">THis div</div>
   <!--https://api.stackexchange.com/2.2/me/posts?client_id=2917&access_token=ocM4YfTiEuKZRR6VsvPLPA))&expires=86399&site=stackoverflow.com&key=7VAo2cWS6XfA97iCM)rEGw((
 			<div ng-controller="Hello">
 			<p>The ID is {{greeting.items[0].owner}}</p>
