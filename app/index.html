@@ -77,7 +77,27 @@ $.ajax({
 	
 	
 }
-
+function Hello3($scope, $http)
+{
+alert("here");
+$.ajax({
+        type: 'GET',
+        url: 'https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access,
+        crossDomain: true,
+        async: false,
+        jsonpCallback: 'jsonCallback',
+        dataType: 'jsonp',
+        contentType:'application/json',
+        success: function(data) {        
+            $scope.wow = data;
+			myValue = data;
+			document.getElementById('comments3').innerHTML=$scope.greeting.items;
+        },
+		jsonp: 'jsonp'    
+    });
+	
+	
+}
  function Hello($scope, $http) {
 	alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
@@ -111,7 +131,7 @@ $.ajax({
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a   data-toggle="tab"><span class="glyphicon glyphicon-home"></span>&nbsp;Login</a></li>
-                    <li><a data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;Resume</a></li>
+                    <li><a onclick="Hello3()" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;Resume</a></li>
                     <li><a href="#" data-toggle="tab"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Portfolio</a></li>
                     <li class="dropdown" data-toggle="tab">
                         <a class="dropdown-toggle; menu-size" data-toggle="dropdown">Find Me!<b class="caret"></b></a>
@@ -149,6 +169,7 @@ $.ajax({
   </ul>
   <div id="comments1">THis div</div>
   <div id="comments2">THis div</div>
+    <div id="comments3">TESTING!!!!!!!!!</div>
   <!--https://api.stackexchange.com/2.2/me/posts?client_id=2917&access_token=ocM4YfTiEuKZRR6VsvPLPA))&expires=86399&site=stackoverflow.com&key=7VAo2cWS6XfA97iCM)rEGw((
 			<div ng-controller="Hello">
 			<p>The ID is {{greeting.items[0].owner}}</p>
