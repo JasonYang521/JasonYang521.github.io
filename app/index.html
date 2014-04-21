@@ -9,6 +9,8 @@
   <script type='text/javascript'>
 // For simplicity, we're using jQuery for some things
 //   However, the library has no jQuery dependency
+
+var access;
 $(function (){
 // Initialize library
 SE.init({ 
@@ -34,10 +36,11 @@ $('#login-button').click(function() {
     //   'click blessing'
     SE.authenticate({
         success: function(data) { 
+			access= data.accessToken
             alert(
                 'User Authorized with account id = ' + 
                 data.networkUsers[0].account_id + ', got access token = ' + 
-                data.accessToken
+                access
             ); 
         },
         error: function(data) { 
