@@ -52,25 +52,12 @@ $('#login-button').click(function() {
 });
 </script>
 <script>
-function newDoc()
-  {
-  window.location.assign("https://stackexchange.com/oauth/dialog?client_id=2917&redirect_uri=http://localhost:8000/app/index.html")
-  }
-  function newDoc1()
-  {
-  window.location.assign("https://api.stackexchange.com/2.2/me/posts?client_id=2917&access_token=ocM4YfTiEuKZRR6VsvPLPA))&expires=86399&site=stackoverflow.com&key=7VAo2cWS6XfA97iCM)rEGw((")
-  }
-  
  function Hello($scope, $http) {
-    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2917&access_token=ocM4YfTiEuKZRR6VsvPLPA))&expires=86399&site=stackoverflow.com&key=7VAo2cWS6XfA97iCM)rEGw((').
+    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&'+access).
         success(function(data) {
             $scope.greeting = data;
-        });
-		
-		
+        });		
 } 
-
-
   var myValue;
   var myValue2;
 function Hello2($scope, $http)
@@ -156,18 +143,18 @@ $.ajax({
    <button id="login-button" disabled>Loading...</button>
 
   <input type="button" value="Load new document" onclick="newDoc()">
-    <input type="button" value="load WoW STuffs" onclick="Hello3()">
+    <input type="button" value="load WoW STuffs" onclick="Hello()">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
   </ul>
   <div id="comments1">THis div</div>
   <div id="comments2">THis div</div>
-  <!--https://api.stackexchange.com/2.2/me/posts?client_id=2917&access_token=ocM4YfTiEuKZRR6VsvPLPA))&expires=86399&site=stackoverflow.com&key=7VAo2cWS6XfA97iCM)rEGw((
+  <!--https://api.stackexchange.com/2.2/me/posts?client_id=2917&access_token=ocM4YfTiEuKZRR6VsvPLPA))&expires=86399&site=stackoverflow.com&key=7VAo2cWS6XfA97iCM)rEGw((-->
 			<div ng-controller="Hello">
 			<p>The ID is {{greeting.items[0].owner}}</p>
 				<ul ng-repeat="item in greeting.items">
 			<li>The Value and Key  is {{item.owner.reputation}}</li>
-		</ul>-->
+		</ul>
 		</div>
 					<div ng-controller="Hello2">
 			<p>The ID is {{wow.items}}</p>
