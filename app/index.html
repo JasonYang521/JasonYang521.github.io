@@ -76,7 +76,7 @@ $.ajax({
 	
 	
 }
-function Hello3($scope1, $http)
+function Hello3($scope, $http)
 {
 alert("here");
 $.ajax({
@@ -88,9 +88,9 @@ $.ajax({
         dataType: 'jsonp',
         contentType:'application/json',
         success: function(data) {        
-            $scope1.me = data;
+            $scope.me = data;
 			myValue = data;
-			document.getElementById('comments3').innerHTML=$scope1.me.items;
+			document.getElementById('comments3').innerHTML=$scope.me.items;
         },
 		jsonp: 'jsonp'    
     });
