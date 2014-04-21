@@ -78,8 +78,8 @@ $.ajax({
 }
 
  function Hello($scope, $http) {
-	alert(access);
-    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=kQgF18IFYEuIN*YvleeVkw))').
+	alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.greeting = data;
         });		
