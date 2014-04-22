@@ -1,5 +1,6 @@
 			<div ng-controller="getMyQuestionPage">
-				<ul ng-repeat="item in getMyQuestionData.items">
+				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
 					<li>Question ID: {{item.question_id}}</a></li>
+					<li><a href="{{item.link}}"><h4>{{item.link}} </h4></a></li>			
 				</ul>
 			</div>

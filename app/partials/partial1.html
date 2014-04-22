@@ -1,23 +1,23 @@
+			<h3>User Profile</h3>
 			<div ng-controller="getUser">
 			<!--Not sure if there are more then one account possible so I used a loop to loop through items for all possible accounts.  NOTE: COULD NOT TEST THIS no account-->		
 			
-				<ul ng-repeat="item in greeting.items">
-					<h1>User Profile: {{item.display_name}}</h1>	
+				<ul ng-repeat="item in greeting.items" class="noList">
+					<li><h4>Name: {{item.display_name}}</h4></li>	
 					<li>Your Creation Date is: <mydate>{{item.last_modified_date*1000 | date:'MM-dd-yyyy HH:MM:ss'}}</mydate></li>
 					<li>Your account ID is: {{item.account_id}}</li>	
 					<li>Your UserID is: {{item.user_id}}</li>	
 					<li>Your Location is: {{item.location}}</li>					
 					<li>Your Reputation is: {{item.reputation}}</li>
-					<h3>Badges for this Profile:</h3>
+					<h4>Badges for this Profile:</h4>
 					<li>Your Bronze Badges are: {{item.badge_counts.bronze}}</li>	
 					<li>Your Silver Badges are: {{item.badge_counts.silver}}</li>	
 					<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>	
 				</ul>
 			</div>
+			<h3>Favorited Questions</h3>
 			<div ng-controller="getMyFavorites">
-				<ul ng-repeat="item in getMyFavoritesData.items">
-					<li><a href="#/view2?qid={{item.question_id}}"><h1>Question ID:{{item.question_id}} </h1></a></li>
+				<ul ng-repeat="item in getMyFavoritesData.items" class="noList">
+					<li><a href="#/view2?qid={{item.question_id}}"><h4>Question ID:{{item.question_id}} </h4></a></li>
 				</ul>
 			</div>
-		<li><a href="#/view2">Search</a></li>
-		<li><a href="#/view3">Questions</a></li>
