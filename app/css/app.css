@@ -36,5 +36,16 @@ body{
 .noList{
 	list-style-type: none;
 }
-ul{
+#hlogo p{
+width: 250px;
+height: 61px;
+display: block;
+background-position: 0 0;
+text-indent: -999999em;
+float: left;
+background-image: url('../img/stackLogo.png');
+background-repeat:no-repeat;
+}
+#spacer{
+	height:30px;
 }
