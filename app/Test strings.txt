@@ -8,3 +8,5 @@ https://api.stackexchange.com/2.2/users/871050/timeline?client_id=2919&site=stac
 timeline of reputation
 https://api.stackexchange.com/2.2/me/reputation-history?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=QUi5yYiKNxakvYEeHrAUdw))
 
+Questions unaswered tagged by php
+https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged=php&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))
