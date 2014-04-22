@@ -1,7 +1,15 @@
 			<div ng-controller="getUser">
-			<p>The ID is {{greeting.items[0].account_id}}</p>
+			<!--Not sure if there are more then one account possible so I used a loop to loop through items for all possible accounts.  NOTE: COULD NOT TEST THIS no account-->		
 				<ul ng-repeat="item in greeting.items">
-				<li>The Value and Key  is {{item.reputation}}
+				<li>Your Bronze Badges are: {{item.badge_counts.bronze}}</li>	
+				<li>Your Silver Badges are: {{item.badge_counts.silver}}</li>	
+				<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>	
+				<li>Your Creation Date is: <mydate>{{item.last_modified_date*1000 | date:'MM-dd-yyyy HH:MM:ss'}}</mydate></li>
+				<li>Your account ID is: {{item.account_id}}</li>
+				<li>Your Display Name is: {{item.display_name}}</li>	
+				<li>Your UserID is: {{item.user_id}}</li>	
+				<li>Your Location is: {{item.location}}</li>					
+				<li>Your Reputation is: {{item.reputation}}</li>
 			<!--<li>The Value and Key  is {{item.owner.reputation}}</li>-->
 		</ul>
 		</div>

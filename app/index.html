@@ -8,7 +8,10 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   
   <script type='text/javascript'>
+//stores access token for later use.
 var access;
+var myValue;
+var myValue2;
 $(function (){
 // Initialize library
 SE.init({ 
@@ -17,8 +20,8 @@ SE.init({
     clientId: 2919, 
     key: '5Ti3ah)Ot6fuG66HSW02gg((', 
     // Used for cross domain communication, it will be validated'http://JasonYang521.github.io/app/index.html'
-    channelUrl:'http://localhost:8000/app/index.html',
-	//channelUrl:'http://JasonYang521.github.io/app/index.html',
+    //channelUrl:'http://localhost:8000/app/index.html',
+	channelUrl:'http://JasonYang521.github.io/app/index.html',
     // Called when all initialization is finished
     complete: function(data) { 
         $('#login-button')
@@ -39,19 +42,17 @@ $('#login-button').click(function() {
                 'User Authorized with account id = ' + 
                 data.networkUsers[0].account_id + ', got access token = ' + 
                 access
-            ); 
+            );  
 						document.getElementById('comments1').innerHTML=access;
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
         },
+		scope: ['read_inbox','private_info','write_access','no_expiry'],
         networkUsers: true
     });
 });
 });
-
-  var myValue;
-  var myValue2;
 function Hello2($scope, $http)
 {
 $.ajax({
@@ -73,20 +74,25 @@ $.ajax({
 }
  function getUser($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
-    //$http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=QUi5yYiKNxakvYEeHrAUdw))').
+    $http.get('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	//$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=QwrAsr1pmQT(zm8ilgQh2w))').
         success(function(data) {
             $scope.greeting = data;
+			var creationDate = "Creation Date: " + new Date($scope.greeting.items[0].creation_date);
+			document.getElementById('comments1').innerHTML=creationDate;
         });		
-} 
+		
+}
+
 </script>
 </head>
 <body>
-	<a href="#" class="navbar-brand logo"><div ng-controller="getUser"><b>{{greeting.items[0].display_name}}</b>Corner</div> </a>
+	
     <div class="navbar navbar-inverse navbar-static-top">
 
         <div class="container">
-
+			<!--if multiple accounts will use first listed account as name-->
+			<a href="#" class="navbar-brand logo"><div ng-controller="getUser"><b>{{greeting.items[0].display_name}}</b>Corner</div> </a>
             <!--<a href="#" class="navbar-brand no-padding"><div class="navbar-brand" style="background-image: url(/Content/Link.png)">Yang's Corner</div></a>-->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -132,7 +138,7 @@ $.ajax({
 	<li><a href="#/view3">Questions</a></li>
 	
   </ul>
-    <div id="comments1">THis div</div>
+  <div id="comments1">User Information:  Please Login to see information:</div>
   <div id="comments2">THis div</div>
     <div id="comments3">TESTING!!!!!!!!!</div>
 	

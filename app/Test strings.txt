@@ -1,0 +1,10 @@
+query strings
+list of favorites:
+https://api.stackexchange.com/2.2/me/favorites?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=QUi5yYiKNxakvYEeHrAUdw))
+
+Timeline of badges and responses
+https://api.stackexchange.com/2.2/users/871050/timeline?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=QUi5yYiKNxakvYEeHrAUdw))
+
+timeline of reputation
+https://api.stackexchange.com/2.2/me/reputation-history?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=QUi5yYiKNxakvYEeHrAUdw))
+
