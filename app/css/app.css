@@ -31,7 +31,8 @@
 body{
     background-image:url("../img/background2.jpg");
 	background-image: no-repeat;
-	background-position:fixed !important;
+	background-attachment:fixed;
+	background-position: center!important;
     font-family: "Blizzard","Arial","Helvetica",sans-serif !important;
 }
 .noList{
