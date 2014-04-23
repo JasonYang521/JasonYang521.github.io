@@ -6,7 +6,12 @@
 	<hr/>
 	<div>
 	<div>
-		Search Question Title: <input ng-model="searchText.title">
+	<form class="navbar-form navbar-left" role="search" action="/Home/Index" method="Post">
+		<div class="form-group">
+			<input type="text" name="FName" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
 	</div>
 
 	</div>	<hr/>
@@ -14,14 +19,12 @@
 		<h1>Questions:</h1>
 		 <table class="search">
 			<tr>
-			<th id="tableIndex">#</th>
 			<th><a href="" ng-click="predicate = 'title'; reverse=!reverse" id="titleColumn">Title</a></th>
 			<th><a href="" ng-click="predicate = 'question_id'; reverse=!reverse">Question Link</a></th>
 			<th><a href="" ng-click="predicate = 'answer_count'; reverse=!reverse" id="answerColumn">Answer</a></th>
 			<th><a href="" ng-click="predicate = 'No Sortable'">Tags</a></th>
 			</tr>
-			<tr ng-repeat="questionsInSearch in getSearchPageData.items | orderBy:predicate:reverse | filter:searchText">
-			<td>{{$index + 1}}</td>
+			<tr ng-repeat="questionsInSearch in getSearchPageData.items | orderBy:predicate:reverse">
 			<td ng-bind-html="questionsInSearch.title| unsafe">{{questionsInSearch.title}}</td>
 			<td><a href="#/view2?qid={{questionsInSearch.question_id}}">{{questionsInSearch.question_id}}</a></td>
 			<td>{{questionsInSearch.answer_count}}</td>

@@ -18,8 +18,24 @@
 					<h3>Badges for this Profile:</h3>
 					<div class="well">
 						<li>Your Bronze Badges are: {{item.badge_counts.bronze}}</li>	
+						<div class="well" ng-controller="getUserBadgesBronze">
+							<ul ng-repeat="bronze in bronze.items" class="noList" id="bronze">
+								<a class="btn btn-default" href="{{bronze.link}}">{{bronze.name}}</a>
+							</ul>
+						</div>
 						<li>Your Silver Badges are: {{item.badge_counts.silver}}</li>	
-						<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>	
+						<div class="well" ng-controller="getUserBadgesSilver">
+							<ul ng-repeat="silver in silver.items" class="noList">
+								<a class="btn btn-default" href="{{silver.link}}">{{silver.name}}</a>
+							</ul>
+						</div>
+						<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>
+						<div class="well" ng-controller="getUserBadgesGold">
+							<ul ng-repeat="gold in gold.items" class="noList">
+								<a class="btn btn-default" href="{{bronze.link}}">{{gold.name}}</a>
+							</ul>
+						</div>
+
 					</div>
 				</ul>
 			</div>
@@ -32,10 +48,10 @@
 		<div class="panel-body">
 				<div ng-controller="getMyFavorites">
 					<ul ng-repeat="item in getMyFavoritesData.items" class="noList">
-						<li><a href="#/view2?qid={{item.question_id}}"><h4>Question ID:{{item.question_id}}</h4></a></li>
+						<li><a href="#/view2?qid={{item.question_id}}"><h4>Question {{$index + 1}}:  {{item.title}}</h4></a></li>
 						
 						<div class="btn-group btn-group-justified" ng-repeat="tag in item.tags">
-							<a class="btn btn-default" href="#/view3?tagID={{tag}}">Tags:{{tag}}</a>
+							<a class="btn btn-default" href="#/view3?tagID={{tag}}">{{tag}}</a>
 						</div>
 					</ul>
 				</div>

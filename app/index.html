@@ -64,6 +64,30 @@ function getUser($scope, $http) {
             $scope.greeting = data;
         });			
 }
+function getUserBadgesBronze($scope, $http) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&min=bronze').
+        success(function(data) {
+            $scope.bronze = data;
+        });			
+}
+function getUserBadgesSilver($scope, $http) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&min=silver&max=silver').
+        success(function(data) {
+            $scope.silver = data;
+        });			
+}
+function getUserBadgesGold($scope, $http) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&max=gold').
+        success(function(data) {
+            $scope.gold = data;
+        });			
+}
 function getMyFavorites($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
@@ -119,10 +143,12 @@ function getSearchPage($scope, $http,$location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&pagesize=35&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
         success(function(data) {
             $scope.getSearchPageData = data;
-        });			
+			$scope.predicate = '';
+        });	
+	
 }
 
 </script>
@@ -151,7 +177,7 @@ function getSearchPage($scope, $http,$location) {
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a id="login-button" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>Authenticating App</a></li>
-                    <li><a data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;Personal Information</a></li>
+                    <li><a href="#/view1" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;Personal Information</a></li>
                     <li><a href="#" data-toggle="tab"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Search</a></li>
                     <li class="dropdown" data-toggle="tab">
                         <a class="dropdown-toggle; menu-size" data-toggle="dropdown">Quick Menu<b class="caret"></b></a>
