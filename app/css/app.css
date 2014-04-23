@@ -29,7 +29,9 @@
   padding: 0;
 }
 body{
-    background-image: url("../img/background.jpg");
+    background-image:url("../img/background2.jpg");
+	background-image: no-repeat;
+	background-position:fixed !important;
     font-family: "Blizzard","Arial","Helvetica",sans-serif !important;
 }
 .noList{
@@ -64,4 +66,7 @@ blockquote{
 }
 #userProfileHeading{
 	margin-top:-20px;
+}
+#banner{
+	background-color: #222222;
 }

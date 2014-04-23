@@ -132,6 +132,7 @@ function getSearchPage($scope, $http,$location) {
     <div class="navbar navbar-inverse navbar-static-top">
 
         <div class="container">
+
 			<!--if multiple accounts will use first listed account as name-->
 			<a href="#" class="navbar-brand logo"><div ng-controller="getUser"><b>{{greeting.items[0].display_name}}</b>Corner</div> </a>
             <!--<a href="#" class="navbar-brand no-padding"><div class="navbar-brand" style="background-image: url(/Content/Link.png)">Yang's Corner</div></a>-->
@@ -172,14 +173,14 @@ function getSearchPage($scope, $http,$location) {
 
     </div>
 
-	<div class="container">
-
-		<ul class="menu">
-			<li><a href="#/view1">Home</a></li>
-		</ul>
+	<div class="container" id="banner">
 			<div id="hlogo">
 				<p>&nbsp;</p>
 			</div>
+		<ul class="menu">
+			<li><a href="#/view1">Home</a></li>
+		</ul>
+
 	</div>
 
   <div ng-view class="container"></div>
