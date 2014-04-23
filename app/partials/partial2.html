@@ -1,10 +1,53 @@
+			
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1 class="panel-title">Question</h1>
+		</div>	
+		<div class="panel-body">
 			<div ng-controller="getMyQuestionPage">
 				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
-					<li>Question ID: {{item.question_id}}</a></li>
-					<li ><h3 ng-bind-html="item.title| unsafe">Title: {{item.title}}</h3></a></li>
-					<li ng-bind-html="item.body| unsafe"> {{item.body}}</h3></a></li>
+					<li>Question ID: {{item.question_id}}</li>
+					<li ><h3 ng-bind-html="item.title| unsafe">{{item.title}}</h3></li>
+					<li ng-bind-html="item.body| unsafe"> {{item.body}}</li>
 					<li><a href="{{item.link}}"><h4>{{item.link}} </h4></a></li>			
 				</ul>
-				
+
+			</div>	
+			<hr>
+				<div ng-controller="getMyQuestionComments">	
+					<h4>Comments:</h4>
+					<ul ng-repeat="comments in getMyQuestionCommentsData.items" class="noList">
+						<div class="well">
+							<li ng-bind-html="comments.body| unsafe">{{comments.body}}</li>
+						</div>
+					</ul>
+					
+				</div>
+		</div>
+	</div>
+			
+
+	<div id="answerContainer" ng-controller="getMyQuestionAnswers">		
+		<ul ng-repeat="answer in getMyQuestionAnswersData.items" class="noList">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title">Answers</h1>
+				</div>
+				<div class="panel-body">
+					<li ng-bind-html="answer.body| unsafe">{{answer.body}}</li>	
+					<div ng-init="answerID =answer.answer_id">
+					<hr>
+						<h4>Comments:</h4>
+						<div ng-controller="getCommentsForAnswers">	
+								<ul ng-repeat="answerComments in getCommentsForAnswersData.items" class="noList">
+									<div class="well">
+										<li ng-bind-html="answerComments.body| unsafe">{{answerComments.body}}</li>
+									</div>
+								</ul>
+						</div>	
+					</div>	
+				</div>
 			</div>
-			<div id="thisBody">Hello</div>
+		</ul>	
+			
+	</div>

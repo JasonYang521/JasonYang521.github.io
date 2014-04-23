@@ -1,27 +1,44 @@
-			<h3>User Profile</h3>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1 class="panel-title">User Profile Information</h1>
+		</div>
+		<div class="panel-body">
 			<div ng-controller="getUser">
 			<!--Not sure if there are more then one account possible so I used a loop to loop through items for all possible accounts.  NOTE: COULD NOT TEST THIS no account-->		
 			
 				<ul ng-repeat="item in greeting.items" class="noList">
-					<li><h4>Name: {{item.display_name}}</h4></li>	
-					<li>Your Creation Date is: <mydate>{{item.last_modified_date*1000 | date:'MM-dd-yyyy HH:MM:ss'}}</mydate></li>
-					<li>Your account ID is: {{item.account_id}}</li>	
-					<li>Your UserID is: {{item.user_id}}</li>	
-					<li>Your Location is: {{item.location}}</li>					
-					<li>Your Reputation is: {{item.reputation}}</li>
-					<h4>Badges for this Profile:</h4>
-					<li>Your Bronze Badges are: {{item.badge_counts.bronze}}</li>	
-					<li>Your Silver Badges are: {{item.badge_counts.silver}}</li>	
-					<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>	
+					<li><h3 id="userProfileHeading">Name: {{item.display_name}}</h3></li>	
+					<div class="well">
+						<li>Your Creation Date is: <mydate>{{item.creation_date*1000 | date:'MM-dd-yyyy HH:MM:ss'}}</mydate></li>
+						<li>Your account ID is: {{item.account_id}}</li>	
+						<li>Your UserID is: {{item.user_id}}</li>	
+						<li>Your Location is: {{item.location}}</li>					
+						<li>Your Reputation is: {{item.reputation}}</li>
+					</div>
+					<h3>Badges for this Profile:</h3>
+					<div class="well">
+						<li>Your Bronze Badges are: {{item.badge_counts.bronze}}</li>	
+						<li>Your Silver Badges are: {{item.badge_counts.silver}}</li>	
+						<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>	
+					</div>
 				</ul>
 			</div>
-			<h3>Favourite Questions</h3>
-			<div ng-controller="getMyFavorites">
-				<ul ng-repeat="item in getMyFavoritesData.items" class="noList">
-					<li><a href="#/view2?qid={{item.question_id}}"><h4>Question ID:{{item.question_id}} </h4></a></li>
-					
-					<div class="btn-group btn-group-justified" ng-repeat="tag in item.tags">
-						<a class="btn btn-default" href="#/view3?tagID={{tag}}">Tags:{{tag}}</a>
-					</li>
-				</ul>
-			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1 class="panel-title">Favorite Questions</h1>
+		</div>
+		<div class="panel-body">
+				<div ng-controller="getMyFavorites">
+					<ul ng-repeat="item in getMyFavoritesData.items" class="noList">
+						<li><a href="#/view2?qid={{item.question_id}}"><h4>Question ID:{{item.question_id}}</h4></a></li>
+						
+						<div class="btn-group btn-group-justified" ng-repeat="tag in item.tags">
+							<a class="btn btn-default" href="#/view3?tagID={{tag}}">Tags:{{tag}}</a>
+						</div>
+					</ul>
+				</div>
+		</div>
+	</div>
+	

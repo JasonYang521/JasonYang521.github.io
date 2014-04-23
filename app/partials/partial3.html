@@ -1,6 +1,28 @@
-                <form class="navbar-form navbar-left" role="search" action="/Home/Index" method="Post">
-                    <div class="form-group">
-                        <input type="text" name="FName" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+
+
+<div ng-controller="getSearchPage">	
+	<h1>Questions:</h1>
+	<ul ng-repeat="questionsInSearch in getSearchPageData.items" class="noList">
+		<div class="well">
+			<li>Question: [{{$index + 1}}]</li>
+			<li ng-bind-html="questionsInSearch.title| unsafe">{{questionsInSearch.title}}</li>
+			<li>QuestionID:{{questionsInSearch.question_id}}</li>
+			<li>Answer Count:{{questionsInSearch.answer_count}}</li>
+			<li>View Count:{{questionsInSearch.view_count}}</li>
+			<li>Question Creation Date is: <mydate>{{questionsInSearch.creation_date*1000 | date:'MM-dd-yyyy HH:MM:ss'}}</mydate></li>
+			<li>Last Modified Date is: <mydate>{{questionsInSearch.last_activity_date*1000 | date:'MM-dd-yyyy HH:MM:ss'}}</mydate></li>
+			<div class="btn-group btn-group-justified" ng-repeat="tag in questionsInSearch.tags">
+				<a class="btn btn-default" href="#/view3?tagID={{tag}}">Tags:{{tag}}</a>
+			</div>
+		</div>
+	</ul>
+	
+</div>
+
+
+<form class="navbar-form navbar-left" role="search" action="/Home/Index" method="Post">
+	<div class="form-group">
+		<input type="text" name="FName" class="form-control" placeholder="Search">
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>

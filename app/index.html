@@ -81,12 +81,47 @@ function getMyQuestionPage($scope, $http, $location) {
 			
 		});			
 }
+function getMyQuestionAnswers($scope, $http, $location) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/answers?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+        success(function(data) {
+            $scope.getMyQuestionAnswersData = data		
+		});	
+}
+function getMyQuestionComments($scope, $http, $location) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+        success(function(data) {
+            $scope.getMyQuestionCommentsData = data		
+		});	
+}
 function getMyTags($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
         success(function(data) {
             $scope.getMyTags = data;
+        });			
+}
+function getCommentsForAnswers($scope, $http) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	//alert($scope.answerID);
+	$http.get('https://api.stackexchange.com/2.2/answers/'+$scope.answerID+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+        success(function(data) {
+            $scope.getCommentsForAnswersData = data;
+			//alert($scope.getCommentsForAnswersData.items[0].body)
+        });			
+}
+function getSearchPage($scope, $http,$location) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	//alert($scope.answerID);
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&pagesize=35&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
+        success(function(data) {
+            $scope.getSearchPageData = data;
         });			
 }
 

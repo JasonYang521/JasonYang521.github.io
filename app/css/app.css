@@ -30,7 +30,6 @@
 }
 body{
     background-image: url("../img/background.jpg");
-    color: rgba(255,255,255,0.7) !important;
     font-family: "Blizzard","Arial","Helvetica",sans-serif !important;
 }
 .noList{
@@ -54,9 +53,15 @@ background-repeat:no-repeat;
 	height:30px;
 }
 .btn-group-justified {
-	width:auto;
+	width:auto !important;
 	display:inline-block !important;
+}
+.btn-default{
+	width:inherit !important;
 }
 blockquote{
 	border-left: 0px;
+}
+#userProfileHeading{
+	margin-top:-20px;
 }
