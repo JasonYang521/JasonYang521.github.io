@@ -35,6 +35,10 @@ body{
 }
 .noList{
 	list-style-type: none;
+	display: inline;
+}
+.inlineList{
+	 display:inline;
 }
 #hlogo p{
 width: 250px;
@@ -48,4 +52,11 @@ background-repeat:no-repeat;
 }
 #spacer{
 	height:30px;
+}
+.btn-group-justified {
+	width:auto;
+	display:inline-block !important;
+}
+blockquote{
+	border-left: 0px;
 }

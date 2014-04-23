@@ -1,7 +1,10 @@
 			<div ng-controller="getMyQuestionPage">
 				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
 					<li>Question ID: {{item.question_id}}</a></li>
-					<li><h3>Title: {{item.title}}</h3></a></li>
+					<li ><h3 ng-bind-html="item.title| unsafe">Title: {{item.title}}</h3></a></li>
+					<li ng-bind-html="item.body| unsafe"> {{item.body}}</h3></a></li>
 					<li><a href="{{item.link}}"><h4>{{item.link}} </h4></a></li>			
 				</ul>
+				
 			</div>
+			<div id="thisBody">Hello</div>

@@ -15,9 +15,13 @@
 					<li>Your Gold Badges are: {{item.badge_counts.gold}}</li>	
 				</ul>
 			</div>
-			<h3>Favorited Questions</h3>
+			<h3>Favourite Questions</h3>
 			<div ng-controller="getMyFavorites">
 				<ul ng-repeat="item in getMyFavoritesData.items" class="noList">
 					<li><a href="#/view2?qid={{item.question_id}}"><h4>Question ID:{{item.question_id}} </h4></a></li>
+					
+					<div class="btn-group btn-group-justified" ng-repeat="tag in item.tags">
+						<a class="btn btn-default" href="#/view3?tagID={{tag}}">Tags:{{tag}}</a>
+					</li>
 				</ul>
 			</div>
