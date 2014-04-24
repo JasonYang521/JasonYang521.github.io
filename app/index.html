@@ -30,6 +30,7 @@ SE.init({
         $('#login-button')
             .removeAttr('disabled')
             .text('Login'); 
+		$('#home').removeAttr('disabled');
     }
 });
 // Attach click handler to login button
@@ -270,7 +271,7 @@ function getCurrentDateTimeForAnswers($scope){
 	<div class="container">
 
 		<ul class="menu">
-			<li><a href="#/view1">Home</a></li>
+			<li><a disabled id="home" href="#/view1">Home</a></li>
 		</ul>
 		<div id="hlogo">
 			<p>&nbsp;</p>
