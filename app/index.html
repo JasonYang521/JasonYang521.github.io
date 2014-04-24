@@ -47,7 +47,7 @@ $('#login-button').click(function() {
                 data.networkUsers[0].account_id + ', got access token = ' + 
                 access
             );  	
-						document.getElementById("home").disabled = false; 
+						document.getElementById("search").disabled = false; 
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
@@ -245,7 +245,7 @@ function getCurrentDateTimeForAnswers($scope){
 					<div class="form-group">
 						<input type="text" class="form-control" id="submitButton" placeholder="Search In Title">
 					</div>
-					<button type="submit" onclick="getValue()" class="btn btn-default">Submit</button>
+					<button type="submit" onclick="getValue()" disabled id="search "class="btn btn-default">Submit</button>
 				</form>	
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a id="login-button" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>Authenticating App</a></li>
