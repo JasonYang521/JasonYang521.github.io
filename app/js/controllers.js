@@ -15,4 +15,7 @@ angular.module('myApp.controllers', [])
   }])
   .controller('MyCtrl4', [function() {
 	
+  }])
+  .controller('MyCtrl5', [function() {
+	
   }]);
