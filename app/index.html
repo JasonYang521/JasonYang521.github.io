@@ -46,14 +46,14 @@ $('#login-button').click(function() {
                 data.networkUsers[0].account_id + ', got access token = ' + 
                 access
             );  
-        },
-        error: function(data) { 
-            alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
-        },complete: function(data){
-		        $('#login-button')
+			$('#login-button')
             .addAttr('disabled')
             .text('Logged_In'); },
 			$('#home').removeAttr('disabled');
+        },
+        error: function(data) { 
+            alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
+        },
 		scope: ['read_inbox','private_info','write_access','no_expiry'],
         networkUsers: true
 		
