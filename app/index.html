@@ -72,7 +72,8 @@ function getUser1($scope, $http) {
         });			
 }
 
-
+//Gets user data.  I duplicated this function right before the due time for this project.  This was to make sure that on first load the buttons are disabled.  
+//After first load and localstorage holds an access token I want the buttons to be available after refresh and re-entry to the site  
 function getUser($scope, $http) {
 	if (localStorage.getItem("Session") != "undefined")
 	{
