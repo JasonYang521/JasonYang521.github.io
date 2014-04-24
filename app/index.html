@@ -76,7 +76,7 @@ function getUser($scope, $http) {
 function getUserBadgesBronze($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&min=bronze&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&min=bronze&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.bronze = data;
         });			
@@ -85,7 +85,7 @@ function getUserBadgesBronze($scope, $http) {
 function getUserBadgesSilver($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&min=silver&max=silver&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&min=silver&max=silver&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.silver = data;
         });			
@@ -94,7 +94,7 @@ function getUserBadgesSilver($scope, $http) {
 function getUserBadgesGold($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&max=gold&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&max=gold&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.gold = data;
         });			
@@ -103,7 +103,7 @@ function getUserBadgesGold($scope, $http) {
 function getMyFavorites($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/favorites?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me/favorites?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyFavoritesData = data;
         });			
@@ -112,12 +112,12 @@ function getMyFavorites($scope, $http) {
 function getMyQuestionPage($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyQuestionData = data
 			
 		});		
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyQuestionVoteData = data	
 		});				
@@ -126,7 +126,7 @@ function getMyQuestionPage($scope, $http, $location) {
 function getMyQuestionAnswers($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/answers?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/answers?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyQuestionAnswersData = data		
 		});	
@@ -135,11 +135,11 @@ function getMyQuestionAnswers($scope, $http, $location) {
 function getMyQuestionComments($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyQuestionCommentsData = data		
 		});	
-		$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
+		$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyQuestionCommentsVoteData = data	
 		});	
@@ -149,7 +149,7 @@ function getMyTags($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getMyTags = data;
     
@@ -160,7 +160,7 @@ function getCommentsForAnswers($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/answers/'+$scope.answerID+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/answers/'+$scope.answerID+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getCommentsForAnswersData = data;
 			//alert($scope.getCommentsForAnswersData.items[0].body)
@@ -171,7 +171,7 @@ function getSearchPage($scope, $http,$location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getSearchPageData = data;
 			$scope.predicate = '';
@@ -183,7 +183,7 @@ function getSearchTerm($scope, $http,$location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&intitle='+($location.search()).searchTerm+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&intitle='+($location.search()).searchTerm+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+localStorage.getItem("Session")).
         success(function(data) {
             $scope.getSearchTermData = data;
 			$scope.predicate = '';
