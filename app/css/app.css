@@ -28,6 +28,7 @@
 	content: "";
 	padding: 0;
 }
+/*Main Body CSS to give me the bnet look and feel.  Wish I had more time to make this look better*/
 body{
     /*background-image:url("../img/background2.jpg");*/
 	background-color:  	#123A53;
@@ -36,6 +37,7 @@ body{
 	background-position: center!important;
     font-family: "Blizzard","Arial","Helvetica",sans-serif !important;
 }
+/* Removes Bullets and makes list inline for various items*/
 .noList{
 	list-style-type: none;
 	display: inline;
@@ -43,6 +45,7 @@ body{
 .inlineList{
 	 display:inline;
 }
+/*Stack Overflow Sprite display*/
 #hlogo p{
 	width: 250px;
 	height: 61px;
@@ -56,6 +59,15 @@ body{
 #spacer{
 	height:30px;
 }
+/*Questions Page CSS*/
+blockquote{
+	border-left: 0px;
+}
+/*Main Page CSS*/
+#userProfileHeading{
+	margin-top:-20px;
+}
+/*Main Page and Search Page CSS*/
 .btn-group-justified {
 	width:auto !important;
 	display:inline-block !important;
@@ -63,21 +75,7 @@ body{
 .btn-default{
 	width:inherit !important;
 }
-blockquote{
-	border-left: 0px;
-}
-#userProfileHeading{
-	margin-top:-20px;
-}
-#banner{
-	background-color: #222222;
-}
-#titleColumn{
-	width: 200px;
-}
-#answerColumn{
-	padding-right: 10px;
-}
+/*This is for the Search pages for Tags and for search box*/
 table
 {
 	border-collapse:collapse;
@@ -87,11 +85,15 @@ table, th, td
 	border: 1px solid black;
 	padding-left: 5px;
 }
+
 #tableIndex{
 	padding-right: 10px;
 }
-#invoice{
-	color:white;
+#titleColumn{
+	width: 200px;
+}
+#answerColumn{
+	padding-right: 10px;
 }
 .timeline{
 	width: 200px;
