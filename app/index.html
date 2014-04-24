@@ -41,7 +41,10 @@ $('#login-button').click(function() {
     SE.authenticate({
         success: function(data) { 
 			access= data.accessToken;
-	
+		if (typeof(Storage) != "undefined")
+  {
+			localStorage.setItem("Session", access);
+}
 			document.getElementById("search").disabled = false; 
 			document.getElementById("home").disabled = false;
         },
