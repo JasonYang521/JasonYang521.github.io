@@ -67,6 +67,12 @@ blockquote{
 #userProfileHeading{
 	margin-top:-20px;
 }
+.timeline{
+	width: 200px;
+	appearance:button;
+-moz-appearance:button; /* Firefox */
+-webkit-appearance:button; /* Safari and Chrome */
+}
 /*Main Page and Search Page CSS*/
 .btn-group-justified {
 	width:auto !important;
@@ -75,6 +81,7 @@ blockquote{
 .btn-default{
 	width:inherit !important;
 }
+
 /*This is for the Search pages for Tags and for search box*/
 table
 {
@@ -94,10 +101,4 @@ table, th, td
 }
 #answerColumn{
 	padding-right: 10px;
-}
-.timeline{
-	width: 200px;
-	appearance:button;
--moz-appearance:button; /* Firefox */
--webkit-appearance:button; /* Safari and Chrome */
 }
