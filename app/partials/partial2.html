@@ -1,4 +1,4 @@
-			
+	<!--Question start -->		
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h1 class="panel-title">Question</h1>
@@ -7,6 +7,7 @@
 			<div ng-controller="getMyQuestionPage">
 				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
 					<li>Question ID: {{item.question_id}}</li>
+					<!--Code remvoed because could not get Favorites to work due to database calls-->
 					<!--<li><a class="btn btn-default" ng-init="favoriteID =item.question_id" onclick="getID()" ng-click="getID"ng-controller="getID">{{favoriteID}}Favorite</a></li>-->
 					<li ng-init="creationTime =item.creation_date">Vote Count: {{getMyQuestionVoteData.items[$index].up_vote_count-getMyQuestionVoteData.items[$index].down_vote_count}}</li>
 					<li ng-controller = "getCurrentDateTime">Duration: {{currentTime}}  </li>
@@ -17,6 +18,7 @@
 
 			</div>	
 			<hr/>
+				<!--This section prints out the Comments on the Questions-->
 				<div ng-controller="getMyQuestionComments">	
 					<h4>Comments:</h4>
 					<ul ng-repeat="comments in getMyQuestionCommentsData.items" class="noList">
@@ -31,7 +33,7 @@
 		</div>
 	</div>
 			
-
+	<!--Prints out answer section-->
 	<div id="answerContainer" ng-controller="getMyQuestionAnswers">		
 		<ul ng-repeat="answer in getMyQuestionAnswersData.items" class="noList">
 			<div class="panel panel-default">
@@ -42,6 +44,7 @@
 					<li ng-bind-html="answer.body| unsafe">{{answer.body}}</li>	
 					<div ng-init="answerID =answer.answer_id">
 					<hr/>
+					<!--Prints out comments for my questions-->
 						<h4>Comments:</h4>
 						<div ng-controller="getCommentsForAnswers">	
 								<ul ng-repeat="answerComments in getCommentsForAnswersData.items" class="noList">

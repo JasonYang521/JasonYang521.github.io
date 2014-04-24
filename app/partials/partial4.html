@@ -15,6 +15,7 @@
 		 <table class="search">
 			<tr>
 			<th id="tableIndex">#</th>
+			<!--Sorting and table heading-->
 			<th><a href="" ng-click="predicate = 'title'; reverse=!reverse" id="titleColumn">Title</a></th>
 			<th><a href="" ng-click="predicate = 'question_id'; reverse=!reverse">Question Link</a></th>
 			<th><a href="" ng-click="predicate = 'answer_count'; reverse=!reverse" id="answerColumn">Answers</a></th>
@@ -23,6 +24,7 @@
 			<th><a href="" ng-click="predicate = 'up_vote_count - down_vote_count'; reverse=!reverse">Total Votes</a></th>			
 			<th><a href="" ng-click="predicate = 'No Sortable'">Tags</a></th>
 			</tr>
+			<!--Table Data-->
 			<tr ng-repeat="questionsInSearch in getSearchTermData.items | orderBy:predicate:reverse | filter:searchText">
 			<td>{{$index + 1}}</td>
 			<td ng-bind-html="questionsInSearch.title| unsafe">{{questionsInSearch.title}}</td>

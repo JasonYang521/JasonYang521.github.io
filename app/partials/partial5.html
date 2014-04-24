@@ -1,5 +1,5 @@
 
-
+<!--Read Me:  Todo List for this site.-->
 <div ng-controller="getSearchTerm" ng-model="searchText">	
 	<div class="well">
 		<p>I completed most of the functionality on this site, but there were a few items I still would like to have completed.		
@@ -7,21 +7,21 @@
 	<ul>
 		<li>1.  Make the site prettier</li>
 		<li>2.  Get time line Jquery for time line objects</li>
-		<li>3.  Get Favourite working.  I am uncertain why, but all of my queries to favorites result in a 404</li>
-		<li>4.  Get Tag Cloud working:  I deferred on this one because it was something that was covered my by other tag clouds</li>
+		<li>3.  Get Favorites working.  I am uncertain why, but all of my queries to favorites result in a 404</li>
+		<li>4.  Get Tag Cloud working:  I deferred on this one because it was something that was covered my by other tag lists</li>
 		<ul>
 			<li>I was going to complete this work, but I ran out of time to implement this feature.</li>
 			<li>I would implement this feature the following way.  Every time I get a tag value push that value to an Scope array.  Then filter that scope array to remove duplicates</li>
 			<li>After the array is filtered print out buttons associated with tags.  Include link to Tag Search Page with tag in URL</li>
 		</ul>
-		<li>5.  I wish I had some extra time to finish the functionality, but I simply ran out of time to work on this</li>
-		<li>6.  I have everything setup on Github, but there are a lot of extra files as of this point:  Some frameworks for unit testing, some libraries I attempted to use</li>
-		<li>7.  There is a fair amount of optimization that can be completed on this project.  I feel like I could break down some Javascripts, and reuse a few of them.  I figured completing more of the functionality was more imporant</li>
+		<li>5.  After a refresh the buttons are disabled requiring another login.  This could be something avoided.  Though I got to that feature late and I did not have time to debug the issue</li>
+		<li>6.  I have everything setup on Github, but there are a lot of extra files as of this point:  Some frameworks for unit testing, some libraries I attempted to use, and some extra files from NodeJS that I did not get a chance to filter out</li>
+		<li>7.  There is a fair amount of optimization that can be completed on this project.  I feel like I could break down some Javascripts, and reuse a few of them.  I figured completing more of the functionality was more important</li>
 		<li>8.  I tested this on our internal network.  Seemingly Firefox internally wont let me redirect my site, but at home it is fine and IE doesn't work internally.  Internally Chrome and Safari are fine</li>
-		<li>9.  I wanted to create a technology that will do pagination on the search pages as I am only returning 30 values at a time</li>
+		<li>9.  I wanted to create a tech that will do pagination on the search pages as I am only returning 30 values at a time</li>
 		<ul>
 			<li>I felt that I could get this done relatively easily, but I just did not have the time to work on the code for that section</li>
-			<li>I would implement this in one of a few ways.  I could first get the total queries for search and then create page links up top.  On each page click I would issue a new query with that page information</li>
+			<li>I would implement this in one of a few ways.  I could first get the total queries for search and then create page links up top.  On each page link click I would issue a new query with that page information inside</li>
 			<li>Another method for me to do this would be to implement a method to read the field that tells me there are more queries and just have a next button to retrieve the next 30 queries</li>	
 		</ul>
 	</ul>
