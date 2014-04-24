@@ -94,6 +94,7 @@ table, th, td
 	color:white;
 }
 .timeline{
+	width: 200px;
 	appearance:button;
 -moz-appearance:button; /* Firefox */
 -webkit-appearance:button; /* Safari and Chrome */
