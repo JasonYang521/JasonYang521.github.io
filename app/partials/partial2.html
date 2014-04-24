@@ -6,9 +6,8 @@
 		<div class="panel-body">
 			<div ng-controller="getMyQuestionPage">
 				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
-					<li ng-init="favoriteID =item.question_id">Question ID: {{item.question_id}}</li>
-					<li><a class="btn btn-default" >Favorite</a></li>
-					<li><a class="btn btn-default" >Unfavorite</a></li>
+					<li>Question ID: {{item.question_id}}</li>
+					<li><a class="btn btn-default" ng-init="favoriteID =item.question_id" onclick="getID()" ng-click="getID"ng-controller="getID">{{favoriteID}}Favorite</a></li>
 					<li ng-init="creationTime =item.creation_date">Vote Count: {{getMyQuestionVoteData.items[$index].up_vote_count-getMyQuestionVoteData.items[$index].down_vote_count}}</li>
 					<li ng-controller = "getCurrentDateTime">Duration: {{currentTime}}  </li>
 					<li ><h3 ng-bind-html="item.title| unsafe">{{item.title}}</h3></li>

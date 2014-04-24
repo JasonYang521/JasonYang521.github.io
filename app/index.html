@@ -56,126 +56,139 @@ $('#login-button').click(function() {
     });
 });
 });
-
+//This gets the value of the submit button and redirects them to the Search Page.
 function getValue(){
 	var x = document.getElementById("submitButton").value;
     window.location.href="#/view4?searchTerm="+x;
 }
+//Gets user data.  
 function getUser($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
+	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.greeting = data;
         });			
 }
+//Bronze Badges.  I had a few of these so tested.
 function getUserBadgesBronze($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&min=bronze').
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&min=bronze&access_token='+access).
         success(function(data) {
             $scope.bronze = data;
         });			
 }
+//Silver Badges.  Though I also had none of these
 function getUserBadgesSilver($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&min=silver&max=silver').
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&min=silver&max=silver&access_token='+access).
         success(function(data) {
             $scope.silver = data;
         });			
 }
+//Noticed there were special badges so I went and grabbed the special badges of each type and put them in their own cloud.  Hard for me to test as I had no badges.
 function getUserBadgesGold($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&max=gold').
+	$http.get('https://api.stackexchange.com/2.2/me/badges?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&max=gold&access_token='+access).
         success(function(data) {
             $scope.gold = data;
         });			
 }
+//Gets my faorites for the Profile page
 function getMyFavorites($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me/favorites?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
+	$http.get('https://api.stackexchange.com/2.2/me/favorites?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.getMyFavoritesData = data;
         });			
 }
+//Main Question page.  On the page that links the question data.
 function getMyQuestionPage($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
         success(function(data) {
             $scope.getMyQuestionData = data
 			
 		});		
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
         success(function(data) {
             $scope.getMyQuestionVoteData = data	
 		});				
 }
+//Get the Answers to my Questions
 function getMyQuestionAnswers($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/answers?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/answers?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
         success(function(data) {
             $scope.getMyQuestionAnswersData = data		
 		});	
 }
+//Get the Comments on my Questions
 function getMyQuestionComments($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
         success(function(data) {
             $scope.getMyQuestionCommentsData = data		
 		});	
-		$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+		$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
         success(function(data) {
             $scope.getMyQuestionCommentsVoteData = data	
 		});	
 }
+//get my tags
 function getMyTags($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	
-	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.getMyTags = data;
     
     });			
 }
+//Get the comments people put on answers.  
 function getCommentsForAnswers($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/answers/'+$scope.answerID+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=withbody').
+	$http.get('https://api.stackexchange.com/2.2/answers/'+$scope.answerID+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+access).
         success(function(data) {
             $scope.getCommentsForAnswersData = data;
 			//alert($scope.getCommentsForAnswersData.items[0].body)
         });			
 }
+//Get search page for tags is the better term for this.
 function getSearchPage($scope, $http,$location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
         success(function(data) {
             $scope.getSearchPageData = data;
 			$scope.predicate = '';
         });	
 	
 }
+//This is my search page.  I implemented the search on my tool bar.  Liked the way it bootstrapped down.
 function getSearchTerm($scope, $http,$location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&intitle='+($location.search()).searchTerm+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&intitle='+($location.search()).searchTerm+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=cvwvFLMyvV&access_token='+access).
         success(function(data) {
             $scope.getSearchTermData = data;
 			$scope.predicate = '';
         });	
 	
 }
+//function to get time difference for duration
 function getCurrentDateTime($scope){
 	
 	var now = Date.now();
@@ -189,6 +202,7 @@ function getCurrentDateTime($scope){
 	var time = d +' Days '+ h.substr(-2) +' Hours ' + m.substr(-2) +  ' Minutes' 
     $scope.currentTime=time;
 }
+//duplicate function for debugging will remove
 function getCurrentDateTimeForAnswers($scope){
 	
 	var now = Date.now();
@@ -202,9 +216,9 @@ function getCurrentDateTimeForAnswers($scope){
 	var time = d +' Days '+ h.substr(-2) +' Hours ' + m.substr(-2) +  ' Minutes' 
     $scope.currentTime1=time;
 }
-
-function getID(){
-	alert($favoriteID);
+//debugging Can't get a proper response for button.  I think stack exchange api is returning 404's which is giving me issues for favorites.  
+function getID($scope){
+	alert($scope.favoriteID);
 }
 </script>
 </head>
@@ -214,20 +228,18 @@ function getID(){
 
         <div class="container">
 
-			<!--if multiple accounts will use first listed account as name-->
+			<!--This section is my navbar.  If you have multiple accounts it will list your first account as your name.-->
 			<a href="#" class="navbar-brand logo"><div ng-controller="getUser"><b>{{greeting.items[0].display_name}}</b>Corner</div> </a>
-            <!--<a href="#" class="navbar-brand no-padding"><div class="navbar-brand" style="background-image: url(/Content/Link.png)">Yang's Corner</div></a>-->
+            <!--Navbar start.  Chose multicollapse header to mimic three bars for phone sizing.-->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-
                 </button>
             </div>
 
-
+			
             <div class="collapse navbar-collapse navHeaderCollapse">
 				<form class="navbar-form navbar-left" role="search" method="Post">
 					<div class="form-group">
