@@ -198,6 +198,10 @@ function getMyHistory($scope, $http) {
         success(function(data) {
             $scope.getMyHistoryData = data;
         });	
+		$http.get('https://api.stackexchange.com/2.2/me/reputation-history/full?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+localStorage.getItem("Session")).
+        success(function(data) {
+            $scope.getMyReputationData = data;
+        });	
 	
 }
 //function to get time difference for duration

@@ -66,10 +66,18 @@
 					<ul ng-repeat="itemHistory in getMyHistoryData.items" class="noList">
 						<div class="well">
 						<li>{{itemHistory.timeline_type}}</li>
-						<li>{{itemHistory.creation_date| date:'MM-dd-yyyy HH:MM:ss'}}</li>
+						<li>{{itemHistory.creation_date*1000| date:'MM-dd-yyyy HH:MM:ss'}}</li>
+						</div>
+					</ul>
+					Reputation History:
+					<ul ng-repeat="itemReputation in getMyReputationData.items" class="noList">
+						<div class="well">
+						<li>{{itemReputation.reputation_history_type}}</li>
+						<li>{{itemReputation.creation_date*1000| date:'MM-dd-yyyy HH:MM:ss'}}</li>
 						</div>
 					</ul>
 				</div>
 		</div>
+		
 	</div>
 	
