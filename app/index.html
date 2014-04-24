@@ -30,6 +30,7 @@ SE.init({
         $('#login-button')
             .removeAttr('disabled')
             .text('Login'); 
+			document.getElementById("home").disabled = true; 
     }
 });
 // Attach click handler to login button
@@ -45,13 +46,8 @@ $('#login-button').click(function() {
                 'User Authorized with account id = ' + 
                 data.networkUsers[0].account_id + ', got access token = ' + 
                 access
-            );  
-			$('#login-button')
-            .attr('disabled')
-            .text('Logged_In'); 
-			$('#home').attr('disabled');
-			
-			
+            );  	
+						document.getElementById("home").disabled = false; 
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
@@ -273,7 +269,7 @@ function getCurrentDateTimeForAnswers($scope){
 	<div class="container">
 
 		<ul class="menu">
-			<li><a disabled="true" id="home" href="#/view1">Home</a></li>
+			<li><a  id="home" href="#/view1">Home</a></li>
 		</ul>
 		<div id="hlogo">
 			<p>&nbsp;</p>
