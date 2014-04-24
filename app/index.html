@@ -41,7 +41,7 @@ $('#login-button').click(function() {
     SE.authenticate({
         success: function(data) { 
 			access= data.accessToken;
-			$scope.access=access;
+	
 			document.getElementById("search").disabled = false; 
 			document.getElementById("home").disabled = false;
         },
@@ -63,7 +63,7 @@ function getValue(){
 function getUser($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
-	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+$scope.access).
+	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
         success(function(data) {
             $scope.greeting = data;
         });			
