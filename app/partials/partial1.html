@@ -57,4 +57,19 @@
 				</div>
 		</div>
 	</div>
+		<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1 class="panel-title">History</h1>
+		</div>
+		<div class="panel-body">
+				<div ng-controller="getMyHistory">
+					<ul ng-repeat="itemHistory in getMyHistoryData.items" class="noList">
+						<div class="well">
+						<li>{{itemHistory.timeline_type}}</li>
+						<li>{{itemHistory.creation_date| date:'MM-dd-yyyy HH:MM:ss'}}</li>
+						</div>
+					</ul>
+				</div>
+		</div>
+	</div>
 	
