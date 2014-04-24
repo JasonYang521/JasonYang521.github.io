@@ -64,6 +64,16 @@ function getValue(){
     window.location.href="#/view4?searchTerm="+x;
 }
 //Gets user data.  
+function getUser1($scope, $http) {	
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+localStorage.getItem("Session")).
+        success(function(data) {
+            $scope.greeting1 = data;
+        });			
+}
+
+
 function getUser($scope, $http) {
 	if (localStorage.getItem("Session") != "undefined")
 	{
@@ -267,7 +277,7 @@ function home(){
         <div class="container">
 
 			<!--This section is my navbar.  If you have multiple accounts it will list your first account as your name.-->
-			<a href="#" class="navbar-brand logo"><div ng-controller="getUser"><b>{{greeting.items[0].display_name}}</b>Corner</div> </a>
+			<a href="#" class="navbar-brand logo"><div ng-controller="getUser1"><b>{{greeting1.items[0].display_name}}</b>Corner</div> </a>
             <!--Navbar start.  Chose multicollapse header to mimic three bars for phone sizing.-->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
