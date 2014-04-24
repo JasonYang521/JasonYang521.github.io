@@ -29,7 +29,8 @@
 	padding: 0;
 }
 body{
-    background-image:url("../img/background2.jpg");
+    /*background-image:url("../img/background2.jpg");*/
+	background-color:  	#123A53;
 	background-image: no-repeat;
 	background-attachment:fixed;
 	background-position: center!important;

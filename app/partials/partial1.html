@@ -48,7 +48,7 @@
 		<div class="panel-body">
 				<div ng-controller="getMyFavorites">
 					<ul ng-repeat="item in getMyFavoritesData.items" class="noList">
-						<li><a href="#/view2?qid={{item.question_id}}"><h4>Question {{$index + 1}}:  {{item.title}}</h4></a></li>
+						<li><a href="#/view2?qid={{item.question_id}}"ng-bind-html="item.title| unsafe"><h4>Question {{$index + 1}}:  {{item.title}}</h4></a></li>
 						
 						<div class="btn-group btn-group-justified" ng-repeat="tag in item.tags">
 							<a class="btn btn-default" href="#/view3?tagID={{tag}}">{{tag}}</a>
