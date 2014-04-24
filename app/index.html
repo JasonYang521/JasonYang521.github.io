@@ -48,6 +48,7 @@ $('#login-button').click(function() {
                 access
             );  	
 			document.getElementById("search").disabled = false; 
+			document.getElementById("home").disabled = false;
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
@@ -268,7 +269,7 @@ function getCurrentDateTimeForAnswers($scope){
 	<div class="container">
 
 		<ul class="menu">
-			<li><a  id="home" href="#/view1">Home</a></li>
+			<button type="submit" href="#/view1" disabled id = "home" class="btn btn-default">Home</button>
 		</ul>
 		<div id="hlogo">
 			<p>&nbsp;</p>
