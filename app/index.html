@@ -30,7 +30,6 @@ SE.init({
         $('#login-button')
             .removeAttr('disabled')
             .text('Login'); 
-			document.getElementById("home").disabled = true; 
     }
 });
 // Attach click handler to login button
@@ -248,7 +247,7 @@ function home(){
 					<div class="form-group">
 						<input type="text" class="form-control" id="submitButton" placeholder="Search In Title">
 					</div>
-					<button type="submit" onclick="getValue()" disabled id = "search" class="btn btn-default">Submit</button>
+					<button type="submit" onclick="getValue()" disabled id="search" class="btn btn-default">Submit</button>
 				</form>	
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a id="login-button" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>Authenticating App</a></li>
@@ -257,7 +256,7 @@ function home(){
                         <ul class="dropdown-menu menusize">
 						    <li class="dropdown-header">Quick Menu</li>
                             <li class="divider"></li>							
-                            <li><a href="#/view1">&nbsp;Personal Information</a></li>
+                            <li><a href="#/view5">&nbsp;Read Me</a></li>
                         </ul>
                     </li>
                 </ul>
