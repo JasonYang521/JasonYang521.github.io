@@ -65,6 +65,14 @@ function getValue(){
 }
 //Gets user data.  
 function getUser($scope, $http) {
+			if (localStorage.getItem("Session") != "undefined")
+  {
+			document.getElementById("search").disabled = false; 
+			document.getElementById("home").disabled = false;
+			alert(localStorage.getItem("Session"))
+}
+			
+        }
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+localStorage.getItem("Session")).
