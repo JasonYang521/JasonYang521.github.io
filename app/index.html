@@ -103,7 +103,11 @@ function getMyQuestionPage($scope, $http, $location) {
         success(function(data) {
             $scope.getMyQuestionData = data
 			
-		});			
+		});		
+	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+        success(function(data) {
+            $scope.getMyQuestionVoteData = data	
+		});				
 }
 function getMyQuestionAnswers($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
@@ -143,7 +147,7 @@ function getSearchPage($scope, $http,$location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
-	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+($location.search()).tagID+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
         success(function(data) {
             $scope.getSearchPageData = data;
 			$scope.predicate = '';
@@ -182,13 +186,9 @@ function getSearchPage($scope, $http,$location) {
                     <li class="dropdown" data-toggle="tab">
                         <a class="dropdown-toggle; menu-size" data-toggle="dropdown">Quick Menu<b class="caret"></b></a>
                         <ul class="dropdown-menu menusize">
-                            <li><a href="#">&nbsp;Login</a></li>
-                            <li><a href="#">&nbsp;Questions</a></li>
-                            <li><a href="#">&nbsp;Answers</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Contacts</li>
-                            <li><a href="#/view1"><span class="glyphicon glyphicon-earphone"></span>&nbsp;My Info</a></li>
-                            <li><a href="#" ><span class="glyphicon glyphicon-earphone"></span>&nbsp;References</a></li>
+						    <li class="dropdown-header">Quick Menu</li>
+                            <li class="divider"></li>							
+                            <li><a href="#/view1">&nbsp;Personal Information</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -7,13 +7,14 @@
 			<div ng-controller="getMyQuestionPage">
 				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
 					<li>Question ID: {{item.question_id}}</li>
+					<li>Count {{getMyQuestionVoteData.items[$index].up_vote_count-getMyQuestionVoteData.items[$index].down_vote_count}}</li>
 					<li ><h3 ng-bind-html="item.title| unsafe">{{item.title}}</h3></li>
 					<li ng-bind-html="item.body| unsafe"> {{item.body}}</li>
 					<li><a href="{{item.link}}"><h4>{{item.link}} </h4></a></li>			
 				</ul>
 
 			</div>	
-			<hr>
+			<hr/>
 				<div ng-controller="getMyQuestionComments">	
 					<h4>Comments:</h4>
 					<ul ng-repeat="comments in getMyQuestionCommentsData.items" class="noList">
@@ -36,7 +37,7 @@
 				<div class="panel-body">
 					<li ng-bind-html="answer.body| unsafe">{{answer.body}}</li>	
 					<div ng-init="answerID =answer.answer_id">
-					<hr>
+					<hr/>
 						<h4>Comments:</h4>
 						<div ng-controller="getCommentsForAnswers">	
 								<ul ng-repeat="answerComments in getCommentsForAnswersData.items" class="noList">
