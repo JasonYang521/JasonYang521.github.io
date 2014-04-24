@@ -49,9 +49,13 @@ $('#login-button').click(function() {
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
-        },
+        },complete: function(data){
+		        $('#login-button')
+            .addAttr('disabled')
+            .text('Logged_In'); },
 		scope: ['read_inbox','private_info','write_access','no_expiry'],
         networkUsers: true
+		
     });
 });
 });
