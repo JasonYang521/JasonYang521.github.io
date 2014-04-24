@@ -47,9 +47,9 @@ $('#login-button').click(function() {
                 access
             );  
 			$('#login-button')
-            .addAttr('disabled')
+            .attr('disabled')
             .text('Logged_In'); 
-			$('#home').removeAttr('disabled');
+			$('#home').attr('disabled');
 			
 			
         },
@@ -273,7 +273,7 @@ function getCurrentDateTimeForAnswers($scope){
 	<div class="container">
 
 		<ul class="menu">
-			<li><a disabled id="home" href="#/view1">Home</a></li>
+			<li><a disabled="true" id="home" href="#/view1">Home</a></li>
 		</ul>
 		<div id="hlogo">
 			<p>&nbsp;</p>
