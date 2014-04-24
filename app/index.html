@@ -46,7 +46,6 @@ $('#login-button').click(function() {
                 data.networkUsers[0].account_id + ', got access token = ' + 
                 access
             );  
-						document.getElementById('comments1').innerHTML=access;
         },
         error: function(data) { 
             alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage); 
@@ -217,9 +216,7 @@ function getCurrentDateTimeForAnswers($scope){
     $scope.currentTime1=time;
 }
 //debugging Can't get a proper response for button.  I think stack exchange api is returning 404's which is giving me issues for favorites.  
-function getID($scope){
-	alert($scope.favoriteID);
-}
+
 </script>
 </head>
 <body>
