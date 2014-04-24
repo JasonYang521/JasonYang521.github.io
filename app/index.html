@@ -30,7 +30,6 @@ SE.init({
         $('#login-button')
             .removeAttr('disabled')
             .text('Login'); 
-		$('#home').removeAttr('disabled');
     }
 });
 // Attach click handler to login button
@@ -54,6 +53,7 @@ $('#login-button').click(function() {
 		        $('#login-button')
             .addAttr('disabled')
             .text('Logged_In'); },
+			$('#home').removeAttr('disabled');
 		scope: ['read_inbox','private_info','write_access','no_expiry'],
         networkUsers: true
 		
