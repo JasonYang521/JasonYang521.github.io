@@ -35,6 +35,7 @@ body{
 	background-attachment:fixed;
 	background-position: center!important;
     font-family: "Blizzard","Arial","Helvetica",sans-serif !important;
+	
 }
 .noList{
 	list-style-type: none;
@@ -89,4 +90,7 @@ table, th, td
 }
 #tableIndex{
 	padding-right: 10px;
+}
+.container{
+	background-color= rgba (255,255,255,0.5);
 }

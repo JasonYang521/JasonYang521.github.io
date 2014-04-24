@@ -6,8 +6,11 @@
 		<div class="panel-body">
 			<div ng-controller="getMyQuestionPage">
 				<ul ng-repeat="item in getMyQuestionData.items" class="noList">
-					<li>Question ID: {{item.question_id}}</li>
-					<li>Count {{getMyQuestionVoteData.items[$index].up_vote_count-getMyQuestionVoteData.items[$index].down_vote_count}}</li>
+					<li ng-init="favoriteID =item.question_id">Question ID: {{item.question_id}}</li>
+					<li><a class="btn btn-default" >Favorite</a></li>
+					<li><a class="btn btn-default" >Unfavorite</a></li>
+					<li ng-init="creationTime =item.creation_date">Vote Count: {{getMyQuestionVoteData.items[$index].up_vote_count-getMyQuestionVoteData.items[$index].down_vote_count}}</li>
+					<li ng-controller = "getCurrentDateTime">Duration: {{currentTime}}  </li>
 					<li ><h3 ng-bind-html="item.title| unsafe">{{item.title}}</h3></li>
 					<li ng-bind-html="item.body| unsafe"> {{item.body}}</li>
 					<li><a href="{{item.link}}"><h4>{{item.link}} </h4></a></li>			
@@ -19,6 +22,8 @@
 					<h4>Comments:</h4>
 					<ul ng-repeat="comments in getMyQuestionCommentsData.items" class="noList">
 						<div class="well">
+							<li ng-init="creationTimeAnswers=comments.creation_date">Vote Count: {{comments.score}}</li>
+							<li ng-controller = "getCurrentDateTimeForAnswers">Duration: {{currentTime1}}  </li>
 							<li ng-bind-html="comments.body| unsafe">{{comments.body}}</li>
 						</div>
 					</ul>
@@ -42,6 +47,8 @@
 						<div ng-controller="getCommentsForAnswers">	
 								<ul ng-repeat="answerComments in getCommentsForAnswersData.items" class="noList">
 									<div class="well">
+										<li ng-init="creationTimeAnswers=answerComments.creation_date">Vote Count: {{answerComments.score}}</li>
+										<li ng-controller = "getCurrentDateTimeForAnswers">Duration: {{currentTime1}}  </li>
 										<li ng-bind-html="answerComments.body| unsafe">{{answerComments.body}}</li>
 									</div>
 								</ul>

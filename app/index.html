@@ -56,6 +56,11 @@ $('#login-button').click(function() {
     });
 });
 });
+
+function getValue(){
+	var x = document.getElementById("submitButton").value;
+    window.location.href="#/view4?searchTerm="+x;
+}
 function getUser($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
@@ -124,14 +129,20 @@ function getMyQuestionComments($scope, $http, $location) {
         success(function(data) {
             $scope.getMyQuestionCommentsData = data		
 		});	
+		$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'/comments?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+        success(function(data) {
+            $scope.getMyQuestionCommentsVoteData = data	
+		});	
 }
 function getMyTags($scope, $http, $location) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	
 	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))').
         success(function(data) {
             $scope.getMyTags = data;
-        });			
+    
+    });			
 }
 function getCommentsForAnswers($scope, $http) {
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
@@ -154,6 +165,44 @@ function getSearchPage($scope, $http,$location) {
         });	
 	
 }
+function getSearchTerm($scope, $http,$location) {
+	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
+    //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
+	//alert($scope.answerID);
+	$http.get('https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&intitle='+($location.search()).searchTerm+'&client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token=oDFuwVjUjjDyJytZrcxs5g))&filter=cvwvFLMyvV').
+        success(function(data) {
+            $scope.getSearchTermData = data;
+			$scope.predicate = '';
+        });	
+	
+}
+function getCurrentDateTime($scope){
+	
+	var now = Date.now();
+	var creationDate = $scope.creationTime*1000
+	var ms=Math.abs(now-creationDate)
+	    var cd = 24 * 60 * 60 * 1000,
+        ch = 60 * 60 * 1000,
+        d = Math.floor(ms / cd),
+        h = '0' + Math.floor( (ms - d * cd) / ch),
+        m = '0' + Math.round( (ms - d * cd - h * ch) / 60000);
+	var time = d +' Days '+ h.substr(-2) +' Hours ' + m.substr(-2) +  ' Minutes' 
+    $scope.currentTime=time;
+}
+function getCurrentDateTimeForAnswers($scope){
+	
+	var now = Date.now();
+	var creationDate = $scope.creationTimeAnswers*1000
+	var ms=Math.abs(now-creationDate)
+	    var cd = 24 * 60 * 60 * 1000,
+        ch = 60 * 60 * 1000,
+        d = Math.floor(ms / cd),
+        h = '0' + Math.floor( (ms - d * cd) / ch),
+        m = '0' + Math.round( (ms - d * cd - h * ch) / 60000);
+	var time = d +' Days '+ h.substr(-2) +' Hours ' + m.substr(-2) +  ' Minutes' 
+    $scope.currentTime1=time;
+}
+
 
 </script>
 </head>
@@ -178,7 +227,12 @@ function getSearchPage($scope, $http,$location) {
 
 
             <div class="collapse navbar-collapse navHeaderCollapse">
-
+				<form class="navbar-form navbar-left" role="search" method="Post">
+					<div class="form-group">
+						<input type="text" class="form-control" id="submitButton" placeholder="Search In Title">
+					</div>
+					<button type="submit" onclick="getValue()" class="btn btn-default">Submit</button>
+				</form>	
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a id="login-button" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>Authenticating App</a></li>
                     <li><a href="#/view1" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;Personal Information</a></li>
@@ -194,18 +248,19 @@ function getSearchPage($scope, $http,$location) {
                 </ul>
 
             </div>
-
+			
         </div>
-
+	
     </div>
-			<div id="hlogo">
-				<p>&nbsp;</p>
-			</div>
+		
 	<div class="container">
 
 		<ul class="menu">
 			<li><a href="#/view1">Home</a></li>
 		</ul>
+		<div id="hlogo">
+			<p>&nbsp;</p>
+		</div>
 
 	</div>
 

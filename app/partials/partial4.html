@@ -1,6 +1,6 @@
 
 
-<div ng-controller="getSearchPage" ng-model="searchText">	
+<div ng-controller="getSearchTerm" ng-model="searchText">	
 	<div class="well">
 	<pre>Sorting By = {{predicate}}</pre>
 	<hr/>
@@ -17,22 +17,22 @@
 			<th id="tableIndex">#</th>
 			<th><a href="" ng-click="predicate = 'title'; reverse=!reverse" id="titleColumn">Title</a></th>
 			<th><a href="" ng-click="predicate = 'question_id'; reverse=!reverse">Question Link</a></th>
-			<th><a href="" ng-click="predicate = 'creation_date'; reverse=!reverse" >Created</a></th>
 			<th><a href="" ng-click="predicate = 'answer_count'; reverse=!reverse" id="answerColumn">Answers</a></th>
+			<th><a href="" ng-click="predicate = 'creation_date'; reverse=!reverse" >Created</a></th>
 			<th><a href="" ng-click="predicate = 'view_count'; reverse=!reverse" id="answerColumn">Views</a></th>
 			<th><a href="" ng-click="predicate = 'up_vote_count - down_vote_count'; reverse=!reverse">Total Votes</a></th>			
 			<th><a href="" ng-click="predicate = 'No Sortable'">Tags</a></th>
 			</tr>
-			<tr ng-repeat="questionsInSearch in getSearchPageData.items | orderBy:predicate:reverse | filter:searchText">
+			<tr ng-repeat="questionsInSearch in getSearchTermData.items | orderBy:predicate:reverse | filter:searchText">
 			<td>{{$index + 1}}</td>
 			<td ng-bind-html="questionsInSearch.title| unsafe">{{questionsInSearch.title}}</td>
 			<td><a href="#/view2?qid={{questionsInSearch.question_id}}">{{questionsInSearch.question_id}}</a></td>
-			<td><mydate>{{questionsInSearch.creation_date*1000 | date:'EEEE, MMMM d,y'}}</mydate></td>
 			<td>{{questionsInSearch.answer_count}}</td>
+			<td><mydate>{{questionsInSearch.creation_date*1000 | date:'EEEE, MMMM d,y'}}</mydate></td>
 			<td>{{questionsInSearch.view_count}}</td>
 			<td>{{questionsInSearch.up_vote_count-questionsInSearch.down_vote_count}}</td>
 			<td><div class="btn-group btn-group-justified" ng-repeat="tag in questionsInSearch.tags">
-				<a class="btn btn-default" href="#/view3?tagID={{tag}}">Tags:{{tag}}</a>
+				<a class="btn btn-default" href="#/view3?tagID={{tag}}">{{tag}}</a>
 			</div></td>
 			</tr>
 		</table>
