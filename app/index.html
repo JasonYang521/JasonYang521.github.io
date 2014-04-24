@@ -65,12 +65,11 @@ function getValue(){
 }
 //Gets user data.  
 function getUser($scope, $http) {
-			if (localStorage.getItem("Session") != "undefined")
-  {
-			document.getElementById("search").disabled = false; 
-			document.getElementById("home").disabled = false;
-			alert(localStorage.getItem("Session"));
-}
+	if (localStorage.getItem("Session") != "undefined")
+	{
+		document.getElementById("search").disabled = false; 
+		document.getElementById("home").disabled = false;
+	}	
 			
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
@@ -117,6 +116,11 @@ function getMyFavorites($scope, $http) {
 }
 //Main Question page.  On the page that links the question data.
 function getMyQuestionPage($scope, $http, $location) {
+	if (localStorage.getItem("Session") != "undefined")
+	{
+		document.getElementById("search").disabled = false; 
+		document.getElementById("home").disabled = false;
+	}	
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+localStorage.getItem("Session")).
@@ -175,6 +179,12 @@ function getCommentsForAnswers($scope, $http) {
 }
 //Get search page for tags is the better term for this.
 function getSearchPage($scope, $http,$location) {
+	if (localStorage.getItem("Session") != "undefined")
+	{
+		document.getElementById("search").disabled = false; 
+		document.getElementById("home").disabled = false;
+	}	
+	
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
@@ -187,6 +197,11 @@ function getSearchPage($scope, $http,$location) {
 }
 //This is my search page.  I implemented the search on my tool bar.  Liked the way it bootstrapped down.
 function getSearchTerm($scope, $http,$location) {
+	if (localStorage.getItem("Session") != "undefined")
+	{
+		document.getElementById("search").disabled = false; 
+		document.getElementById("home").disabled = false;
+	}	
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
