@@ -42,9 +42,10 @@ $('#login-button').click(function() {
         success: function(data) { 
 			access= data.accessToken;
 		if (typeof(Storage) != "undefined")
-		{
+  {
 			localStorage.setItem("Session", access);
-		}
+			alert(localStorage.getItem("Session"))
+}
 			document.getElementById("search").disabled = false; 
 			document.getElementById("home").disabled = false;
         },
@@ -64,8 +65,6 @@ function getValue(){
 }
 //Gets user data.  
 function getUser($scope, $http) {
-			document.getElementById("search").disabled = false; 
-			document.getElementById("home").disabled = false;
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+localStorage.getItem("Session")).
@@ -111,8 +110,6 @@ function getMyFavorites($scope, $http) {
 }
 //Main Question page.  On the page that links the question data.
 function getMyQuestionPage($scope, $http, $location) {
-			document.getElementById("search").disabled = false; 
-			document.getElementById("home").disabled = false;
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	$http.get('https://api.stackexchange.com/2.2/questions/'+($location.search()).qid+'?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&filter=withbody&access_token='+localStorage.getItem("Session")).
@@ -171,8 +168,6 @@ function getCommentsForAnswers($scope, $http) {
 }
 //Get search page for tags is the better term for this.
 function getSearchPage($scope, $http,$location) {
-			document.getElementById("search").disabled = false; 
-			document.getElementById("home").disabled = false;
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
@@ -185,8 +180,6 @@ function getSearchPage($scope, $http,$location) {
 }
 //This is my search page.  I implemented the search on my tool bar.  Liked the way it bootstrapped down.
 function getSearchTerm($scope, $http,$location) {
-			document.getElementById("search").disabled = false; 
-			document.getElementById("home").disabled = false;
 	//alert('https://api.stackexchange.com/2.2/me/posts?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access);
     //$http.get('https://api.stackexchange.com/2.2/me?client_id=2919&site=stackoverflow.com&key=5Ti3ah)Ot6fuG66HSW02gg((&access_token='+access).
 	//alert($scope.answerID);
@@ -261,6 +254,8 @@ function home(){
                     <span class="icon-bar"></span>
                 </button>
             </div>
+
+			
             <div class="collapse navbar-collapse navHeaderCollapse">
 				<form class="navbar-form navbar-left" role="search" method="Post">
 					<div class="form-group">
